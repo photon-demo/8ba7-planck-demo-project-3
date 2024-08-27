@@ -1,0 +1,19 @@
+view: sales_customers {
+  sql_table_name: customers ;;
+
+  dimension: customer_id {
+    type: number
+    primary_key: true
+    sql: ${TABLE}.customer_id ;;
+  }
+
+  dimension: customer_name {
+    type: string
+    sql: ${TABLE}.customer_name ;;
+  }
+
+  dimension: customer_email {
+    type: string
+    sql: ${TABLE}.customer_email ;;
+  }
+}

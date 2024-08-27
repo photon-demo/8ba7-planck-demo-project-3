@@ -1,0 +1,25 @@
+view: sales_orders {
+  sql_table_name: orders ;;
+
+  dimension: order_id {
+    type: number
+    primary_key: true
+    sql: ${TABLE}.order_id ;;
+  }
+
+  dimension: customer_id {
+    type: number
+    sql: ${TABLE}.customer_id ;;
+  }
+
+  dimension_group: order_date {
+    type: time
+    timeframes: [date, week, month, quarter, year]
+    sql: ${TABLE}.order_date ;;
+  }
+
+  measure: total_amount {
+    type: sum
+    sql: ${TABLE}.total_amount ;;
+  }
+}
